@@ -249,13 +249,13 @@ class CI_Loader {
 
 		$path = '';
 
-		// Is the model in a sub-folder? If so, parse out the filename and path.
+		// Is the models in a sub-folder? If so, parse out the filename and path.
 		if (($last_slash = strrpos($model, '/')) !== FALSE)
 		{
 			// The path is in front of the last slash
 			$path = substr($model, 0, ++$last_slash);
 
-			// And the model name behind it
+			// And the models name behind it
 			$model = substr($model, $last_slash);
 		}
 
@@ -272,7 +272,7 @@ class CI_Loader {
 		$CI =& get_instance();
 		if (isset($CI->$name))
 		{
-			throw new RuntimeException('The model name you are loading is the name of a resource that is already being used: '.$name);
+			throw new RuntimeException('The models name you are loading is the name of a resource that is already being used: '.$name);
 		}
 
 		if ($db_conn !== FALSE && ! class_exists('CI_DB', FALSE))
@@ -341,7 +341,7 @@ class CI_Loader {
 
 			if ( ! class_exists($model, FALSE))
 			{
-				throw new RuntimeException('Unable to locate the model you have specified: '.$model);
+				throw new RuntimeException('Unable to locate the models you have specified: '.$model);
 			}
 		}
 		elseif ( ! is_subclass_of($model, 'CI_Model'))
@@ -751,7 +751,7 @@ class CI_Loader {
 	/**
 	 * Add Package Path
 	 *
-	 * Prepends a parent path to the library, model, helper and config
+	 * Prepends a parent path to the library, models, helper and config
 	 * path arrays.
 	 *
 	 * @see	CI_Loader::$_ci_library_paths
@@ -800,7 +800,7 @@ class CI_Loader {
 	/**
 	 * Remove Package Path
 	 *
-	 * Remove a path from the library, model, helper and/or config
+	 * Remove a path from the library, models, helper and/or config
 	 * path arrays if it exists. If no path is provided, the most recently
 	 * added path will be removed removed.
 	 *
@@ -1355,9 +1355,9 @@ class CI_Loader {
 		}
 
 		// Autoload models
-		if (isset($autoload['model']))
+		if (isset($autoload['models']))
 		{
-			$this->model($autoload['model']);
+			$this->model($autoload['models']);
 		}
 	}
 
@@ -1382,7 +1382,7 @@ class CI_Loader {
 	/**
 	 * CI Component getter
 	 *
-	 * Get a reference to a specific library or model.
+	 * Get a reference to a specific library or models.
 	 *
 	 * @param 	string	$component	Component name
 	 * @return	bool

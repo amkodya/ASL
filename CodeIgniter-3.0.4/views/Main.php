@@ -5,9 +5,10 @@
  * Date: 1/14/16
  * Time: 11:06 AM
  * PROJECT: PANTRY ASSISTANT
- * main.php
+ * Main.php
  */
 ?>
+
 <html>
 <head>
     <title>
@@ -21,7 +22,7 @@
     <img id="logotopleft" src="../images/pantry_assistant_logo.png">
     <div id="topright"><p>Hello, Username!</p><br>
         <img id="smallpic" src="images/profile.jpg"><br>
-        <a href="index.php">Sign Out</a>
+        <a href="../index.php">Sign Out</a>
     </div>
 </section>
 

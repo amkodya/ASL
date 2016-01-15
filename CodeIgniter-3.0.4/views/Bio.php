@@ -6,10 +6,12 @@
  * Date: 1/13/16
  * Time: 7:38 PM
  * PROJECT: PANTRY ASSISTANT
- * bio.php
+ * Bio.php
  */
 ?>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>
         Pantry Assistant
@@ -38,7 +40,7 @@
     </p></div>
 
 <div id="bottom"><br>
-    <a href="index.php">Sign In</a> | <a href="signup.php">Register Now</a>
+    <a href="../index.php">Sign In</a> | <a href="Signup.php">Register Now</a>
     </div>
 </body>
 </html>

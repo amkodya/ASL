@@ -25,11 +25,11 @@
         <input type="text" name="username" placeholder="enter username"><br><br>
         <input type="password" name="password" placeholder="enter password"><br><br>
         <input id="submit" type="submit" name="submit" value="submit">
-        <a href="signup.php">Don't have an account? Sign up now</a>
+        <a href="../views/Signup.php">Don't have an account? Sign up now</a>
     </form>
 
     <div id="bottom">
-        <a href="bio.php"><br>What is Pantry Assistant?</a>
+        <a href="../views/Bio.php"><br>What is Pantry Assistant?</a>
     </div>
 </body>
 </html>

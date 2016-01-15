@@ -6,7 +6,7 @@
  * Date: 1/13/16
  * Time: 7:38 PM
  * PROJECT: PANTRY ASSISTANT
- * signup.php
+ * Signup.php
  */
 ?>
 <html>
@@ -16,24 +16,13 @@
     </title>
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
 
-    <link rel="top" title="CodeIgniter 3.0.4 documentation" href="../index.html"/>
-    <link rel="next" title="Static pages" href="static_pages.html"/>
-    <link rel="prev" title="DB Driver Reference" href="../database/db_driver_reference.html"/>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-
 </head>
 <body>
 
 <div id="top"><img id="logotopleft" src="../images/pantry_assistant_logo.png"></div>
 
-<?php echo validation_errors(); ?>
 
-<?php echo form_open('form'); ?>
-
-
-<form action="signin_form.php" id="signupform" method="post" novalidate="" enctype="multipart/form-data">
+<form action="../application/controllers/Form.php" id="signupform" method="post" novalidate="" enctype="multipart/form-data">
 
     <h2>Register for a PANTRY ASSISTANT account:</h2><br>
 

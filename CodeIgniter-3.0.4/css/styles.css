@@ -162,4 +162,14 @@ a:hover,
     margin: 2px 0 0 5px;
     font-family: "Arial Black", sans-serif;
 }
+@media (max-width: 700px) {
+    #expire {
+        float: left;
+        clear: both;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+}
+
 

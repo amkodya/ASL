@@ -73,7 +73,7 @@ class CI_Model {
 		// Debugging note:
 		//	If you're here because you're getting an error message
 		//	saying 'Undefined Property: system/core/Model.php', it's
-		//	most likely a typo in your model code.
+		//	most likely a typo in your models code.
 		return get_instance()->$key;
 	}
 
