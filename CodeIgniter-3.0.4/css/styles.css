@@ -26,7 +26,7 @@ a:hover,
 }
 #top {
     background-color: #56FCE5;
-    height: 170px;
+    height: 160px;
     width: 100%;
     position: absolute;
     top: 0;
@@ -50,7 +50,7 @@ a:hover,
 #loginform,
 #bio,
 #signupform {
-    margin: 11% 35%;
+    margin: 9% 35%;
 }
 #loginform input,
 #mainbutts input {
@@ -124,7 +124,6 @@ a:hover,
 }
 
 /* MAIN.PHP */
-
 #topright {
     float: right;
     text-align: right;

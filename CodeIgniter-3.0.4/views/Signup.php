@@ -19,6 +19,7 @@
 </head>
 <body>
 
+
 <div id="top"><img id="logotopleft" src="../images/pantry_assistant_logo.png"></div>
 
 
