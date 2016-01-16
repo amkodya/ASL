@@ -18,6 +18,10 @@
 </head>
 <body>
 
+<?php echo validation_errors(); ?>
+
+<?php echo form_open('form'); ?>
+
 <section id="top">
     <img id="logotopleft" src="../images/pantry_assistant_logo.png">
     <div id="topright"><p>Hello, Username!</p><br>

@@ -40,7 +40,7 @@
     </p></div>
 
 <div id="bottom"><br>
-    <a href="../index.php">Sign In</a> | <a href="Signup.php">Register Now</a>
+    <a href="../index.php">Sign In</a> | <a href="signup_form.php">Register Now</a>
     </div>
 </body>
 </html>

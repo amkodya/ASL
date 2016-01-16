@@ -20,7 +20,7 @@ a:hover,
     margin-left: 30%;
 }
 #logotopleft {
-    margin: 8px 0 0 20px;
+    margin: 1px 0 0 20px;
     width: 432px;
     height: 175px;
 }
@@ -86,6 +86,7 @@ a:hover,
     text-justify: auto;
 }
 #signupform h2 {
+    margin-top: -7%;
     text-align: center;
 }
 #signupform input {

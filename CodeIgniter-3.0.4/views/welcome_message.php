@@ -21,7 +21,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<input type="text" name="username" placeholder="enter username"><br><br>
 	<input type="password" name="password" placeholder="enter password"><br><br>
 	<input id="submit" type="submit" name="submit" value="submit">
-	<a href="views/Signup.php">Don't have an account? Sign up now</a>
+
+	<a href="views/signup_form.php">Don't have an account? Sign up now</a>
 </form>
 
 <div id="bottom">
