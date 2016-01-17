@@ -15,6 +15,8 @@ if(isset($_SESSION["message"])) {
 
 echo "<br /><br /><br />";
 
+if (isset($_POST['submit'])) {
+
 $user="root";  //sets the username of the server to  variables
 $pass="root";   //sets the password of the username to the variables
 $dbh = new PDO('mysql:host=localhost;dbname=PantryAssistant;port=8888', $user, $pass); //PDO set into var $dbh - query string links to server and we're given username and pw
@@ -25,9 +27,21 @@ if ($_SERVER['REQUEST_METHOD'] =='POST') {  // if the request method is a POST (
         echo "<br /><br /><div id='msg'>The E-mail address you entered is invalid!</div><br />";
     } else {
 
-        $_SESSION['message'] = "<br /><br /><div id='msg'>Client Added Successfully</div><br />";
+        $_SESSION['message'] = "<br /><br /><div id='msg'>Registration Successful</div><br />";
+
         $dbh = new PDO('mysql:host=localhost;dbname=PantryAssistant;port=8888', $user, $pass);
         #client name, phone number, email, website
+
+        //process avatar photo for upload
+        $tmp_file = $_FILES['profile']['tmp_name'];
+//given a string containing the path to a file/directory,
+//the basename function will return the trailing name component.
+        $target_file = basename($_FILES['profile']['name']);
+        $upload_dir = "uploads";
+//move_uploaded_file will return false if $tmp_file is not a valid upload file
+//or if it cannot be moved for any other reason
+
+
 
         $firstname = $_POST['firstname']; //get POST values from form - client's name
         $lastname = $_POST['lastname']; //get POST values from form - client's name
@@ -36,9 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] =='POST') {  // if the request method is a POST (
         $zip = $_POST['zip']; //get post values from form - client's phone number
         $username = $_POST['username']; //get post values from form - clients email address
         $password = $_POST['password']; //get post values from form - clients email address
-        $profile = $_POST['profile']; //get post values from form - clients website
 
-        $stmt = $dbh->prepare("INSERT INTO login (firstname, lastname, email, dob, zip, username, password, profile) values(:firstname, :lastname, :email, :dob, :zip, :username :password, :profile;");  //prepare statement calling clients table and setting var for the different columns
+
+        $stmt = $dbh->prepare("INSERT INTO login (firstname, lastname, email, dob, zip, username, password) VALUES (:firstname, :lastname, :email, :dob, :zip, :username :password);");  //prepare statement calling clients table and setting var for the different columns
         $stmt->bindParam(':firstname', $firstname); //sets binding paramater that binds sql data to php data - client's name
         $stmt->bindParam(':lastname', $lastname); //sets binding paramater that binds sql data to php data - client's phone number
         $stmt->bindParam(':email', $email); //sets binding paramater that binds sql data to php data - client's name
@@ -46,11 +60,19 @@ if ($_SERVER['REQUEST_METHOD'] =='POST') {  // if the request method is a POST (
         $stmt->bindParam(':zip', $zip); //sets binding paramater that binds sql data to php data - clients email address
         $stmt->bindParam(':username', $username); //sets binding paramater that binds sql data to php data - clients website
         $stmt->bindParam(':password', $password); //sets binding paramater that binds sql data to php data - clients website
-        $stmt->bindParam(':profile', $profile); //sets binding paramater that binds sql data to php data - clients website
+        $stmt->bindParam(':profile', $target_file); //sets binding paramater that binds sql data to php data - clients website
         $stmt->execute();  //executes the code to transform sql to php
-    }
-}
 
+
+//echo "<br /><br /><a href='database_form.php'>Please try logging in Now!</a>";
+//echo "</td></tr></table>";
+        }
+    } else {
+
+    echo "Sorry, you must submit ALL registration field to proceed.<br /><br />";
+    echo "<a href='signup_form.php'>Try Again?<br><br>";
+}
+}
 ?>
 
 
@@ -60,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] =='POST') {  // if the request method is a POST (
 Pantry Assistant
 </title>
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
 
 </head>
 <body>
@@ -133,7 +156,7 @@ Pantry Assistant
         <label>
             Confirm Password
         </label>
-        <input type="password" name="password" id="confpassword" required="required">
+        <input type="password" name="confpassword" id="confpassword" required="required">
     </div>
 
 
@@ -146,12 +169,23 @@ Pantry Assistant
 
     <br><br>
 
-
     <div id="form-submit" class="field f_100 clearfix submit">
-        <input id="submit" type="submit" name="submit" value="submit">
+
+    <a href="#" data-featherlight="#mylightbox"><input id="submit" type="submit" name="submit" value="submit"></a>
+
+        <div id='mylightbox'>Registration Successful!<br><a href='Main.php'>Go to your homepage!</a></div>
+
     </div>
+
+
+
+
+
+
 </form>
 
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
 </body>
 </html>

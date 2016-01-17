@@ -50,7 +50,7 @@ a:hover,
 #loginform,
 #bio,
 #signupform {
-    margin: 9% 35%;
+    margin: 11% 35%;
 }
 #loginform input,
 #mainbutts input {
@@ -86,7 +86,7 @@ a:hover,
     text-justify: auto;
 }
 #signupform h2 {
-    margin-top: -7%;
+    margin-top: -18%;
     text-align: center;
 }
 #signupform input {
@@ -128,7 +128,7 @@ a:hover,
 #topright {
     float: right;
     text-align: right;
-    margin: -10px 30px 0 0;
+    margin: -15px 30px 0 0;
 }
 #smallpic {
     width: 100px;
@@ -138,7 +138,7 @@ a:hover,
 }
 #mainbutts {
     position: relative;
-    top: 19%;
+    top: 12%;
 }
 #mainbutts input {
     border: none;
@@ -152,7 +152,7 @@ a:hover,
 }
 #expire {
     position: relative;
-    top: -0.5%;
+    top: -7.7%;
     left: 24.5%;
     width: 75%;
     height: 17.5%;
@@ -162,14 +162,26 @@ a:hover,
     margin: 2px 0 0 5px;
     font-family: "Arial Black", sans-serif;
 }
-@media (max-width: 700px) {
-    #expire {
-        float: left;
-        clear: both;
-        position: relative;
-        top: 0;
-        left: 0;
-    }
+
+#maincontent {
+    width: 97.7%;
+    border: #56FCE5 12px solid;
+    height: 70%;
+    margin: -55px 0 0 10px;
+}
+#maincontent td {
+    padding: 5px 5px;
+    width: 350px;
+}
+#maincontent table {
+    margin-left: 500px;
 }
 
+#firstrow {
+    background-color: #FFF5e2;
+}
+td {
+    height: 60px;
+    text-align: center;
+}
 
