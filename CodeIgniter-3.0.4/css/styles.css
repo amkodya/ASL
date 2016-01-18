@@ -81,7 +81,7 @@ a:hover,
 
 /* SIGN UP FORM */
 #signupform {
-    margin-left: 28%;
+    margin: 20% 0 0 28%;
     width: 50%;
     text-justify: auto;
 }
@@ -209,9 +209,7 @@ td {
 #id {
     margin-right: 20px;
 }
-#leftlist {
 
-}
 
 
 

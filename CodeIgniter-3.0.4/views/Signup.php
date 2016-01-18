@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 /**
  * Created by PhpStorm.
  * User: Ashley Kodya
@@ -9,8 +9,6 @@
  * Signup.php
  */
 ?>
-
-
 <html>
 <head>
 
@@ -18,95 +16,84 @@
 <body>
 
 <?php
-//if the form is not set - do nothing
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])) { //if the form is not set - do nothing
 
-    //check to see if username, password, avatr is null
-    if ($_POST['password'] != null && $_POST['username'] != null) {
+    // check to see if username, password, avatr is null
+    if ($_POST['password'] != null && $_POST['username'] != null) { //if username and password are set then do this:
 
-        //read in all form field into an "assoc" array and return the array for processing output
-        function makeArray() {
-            $salt = "SuperSaltHash";
-            $epass = md5($_POST['password'] . $salt);
-            $euser = $_POST['username'];
-            $firstname = $_POST['firstname']; //get POST values from form - client's name
-            $lastname = $_POST['lastname']; //get POST values from form - client's name
-            $email = $_POST['email']; //get POST values from form - client's name
-            $dob = $_POST['dob']; //get POST values from form - client's name
-            $zip = $_POST['zip']; //get post values from form - client's phone number
+        /* //read in all form field into an "assoc" array and return the array for processing output
+         function makeArray() {    // makeArray() function to build array
+             $firstname = $_POST['firstname']; //get POST values from form - first name
+             $lastname = $_POST['lastname']; //get POST values from form - last name
+             $email = $_POST['email']; //get POST values from form - email name
+             $dob = $_POST['dob']; //get POST values from form - dob name
+             $zip = $_POST['zip']; //get post values from form - zip phone number
+             $salt = "SuperSaltHash";  // salt array to make Hashed password
+             $username = $_POST['username']; //get POST values from form - username
+             $password = md5($_POST['password'] . $salt); //make hashed password
 
 
-            return array("FIRST NAME" => $firstname, "LAST NAME" => $lastname, "EMAIL" => $email, "DOB" => $dob, "ZIP" => $zip, "USER NAME" => $euser, "Hashed PASSWORD with Dash of Salt" => $epass);
-        }
+             return array("FIRST NAME" => $firstname, "LAST NAME" => $lastname, "EMAIL" => $email, "DOB" => $dob, "ZIP" => $zip, "USER NAME" => $username, "Hashed PASSWORD" => $password);
+         } //array that will show the info user just provided */
 
         echo "<h2>CONGRATULATIONS!</h2>Your membership account sign-up was successful!";
         echo "<table width=100% align=left border=0><tr><td>";
 
         // convert array into variable
-        $data = makeArray();
-
+        // $data = makeArray();
 
 
         //foreach for displaying array contetns created in makeArray function
-        foreach ($data as $attribute => $data) {
+        /* foreach ($data as $attribute => $data) {
             echo "<p align=left><font color = #ff4136>{$attribute}</font>: {$data}";
-        }
+        } */
 
-        //process avatar photo for upload
-        $tmp_file = $_FILES['profile']['tmp_name'];
+
+        $tmp_file = $_FILES['profile']['tmp_name']; //-- process avatar photo for upload -->
         //given a string containing the path to a file/directory,
         //the basename function will return the trailing name component.
         $target_file = basename($_FILES['profile']['name']);
-        $upload_dir = "uploads";
-        //move_uploaded_file will return false if $tmp_file is not a valid upload file
+        $upload_dir = "uploads"; //move_uploaded_file will return false if $tmp_file is not a valid upload file
         //or if it cannot be moved for any other reason
-        if (move_uploaded_file($tmp_file, $upload_dir . "/" . $target_file)) {
-            echo "<br /><br />File Uploaded Successfully<br /><br />";
-            echo "<br /><br />Registration successful!<br /><br />";
 
-            // setup DB Username and password
+        /* echo "<br /><br />Registration successful!<br /><br />";
+            echo "<img src='uploads/" .$target_file. "'>";
+            // setup DB Username and password */
 
-            $user = 'root';
-            $pass = 'root';
+        $user = 'root'; // sets username in variable
+        $pass = 'root'; // sets pw in variable
+        $dbh = new PDO('mysql:host=localhost;dbname=PantryAssistant;port=8889', $user, $pass); //establish PDO and DSN connection to database
 
-            //establish PDO and DSN connection to database
-            $dbh = new PDO('mysql:host=localhost;dbname=PantryAssistant;port=8889', $user, $pass);
+        $salt = "SuperSaltHash"; //helps us create salt hash for password
+        $firstname = $_POST['firstname']; //get POST values from form - first name
+        $lastname = $_POST['lastname']; //get POST values from form - last name
+        $email = $_POST['email']; //get POST values from form - email
+        $dob = $_POST['dob']; //get POST values from form - dob
+        $zip = $_POST['zip']; //get post values from form - zip code
+        $username = $_POST['username']; // gets post values for username
+        $password = md5($_POST['password'] . $salt); //gets post values for password Hashed
 
-            $salt = "SuperSaltHash";
-            $epass = md5($_POST['password'] . $salt);
-            $euser = $_POST['username'];
-            $firstname = $_POST['firstname']; //get POST values from form - client's name
-            $lastname = $_POST['lastname']; //get POST values from form - client's name
-            $email = $_POST['email']; //get POST values from form - client's name
-            $dob = $_POST['dob']; //get POST values from form - client's name
-            $zip = $_POST['zip']; //get post values from form - client's phone number
+        //prepare statement for INSERT
+        $stmt = $dbh->prepare("INSERT INTO login (firstname, lastname, email, dob, zip, username, password, profile) VALUES (:firstname, :lastname, :email, :dob, :zip, :username :password, :profile);");
+        $stmt->bindParam(':firstname', $firstname); //sets binding paramater that binds sql data to php data - first name
+        $stmt->bindParam(':lastname', $lastname); //sets binding paramater that binds sql data to php data - last name
+        $stmt->bindParam(':email', $email); //sets binding paramater that binds sql data to php data - email
+        $stmt->bindParam(':dob', $dob); //sets binding paramater that binds sql data to php data - dob
+        $stmt->bindParam(':zip', $zip); //sets binding paramater that binds sql data to php data - zip code
+        $stmt->bindParam(':username', $username); //sets binding paramater that binds sql data to php data - username
+        $stmt->bindParam(':password', $password); //sets binding paramater that binds sql data to php data - password
+        $stmt->bindParam(':profile', $target_file);
+        $stmt->execute();
 
-            //prepare statement for INSERT
-            $stmt = $dbh->prepare("INSERT INTO login (firstname, lastname, email, dob, zip, username, password, profile) VALUES (:firstname, :lastname, :email, :dob, :zip, :username :password, :profile);");
-            $stmt->bindParam(':firstname', $firstname); //sets binding paramater that binds sql data to php data - client's name
-            $stmt->bindParam(':lastname', $lastname); //sets binding paramater that binds sql data to php data - client's phone number
-            $stmt->bindParam(':email', $email); //sets binding paramater that binds sql data to php data - client's name
-            $stmt->bindParam(':dob', $dob); //sets binding paramater that binds sql data to php data - client's phone number
-            $stmt->bindParam(':zip', $zip); //sets binding paramater that binds sql data to php data - clients email address
-            $stmt->bindParam(':username', $euser);
-            $stmt->bindParam(':password', $epass);
-            $stmt->bindParam(':profile', $target_file);
-            $stmt->execute();
-
-        } else {
-            echo "<br /><br />AVATAR: No photo was uploaded. Please Try Again!";
-        }
         echo "<br /><br /><a href='../index.php'>Please try logging in Now!</a>";
-        echo "</td></tr></table>";
 
 
-
-    } else {
-        echo "Sorry, you must submit ALL registration field to proceed.<br /><br />";
-        echo "<a href='../index.php'>Try Again?<br><br>";
-    }
+    } else { //if the forms are not complete you will see this:
+        echo "Sorry, you must submit ALL registration field to proceed.<br /><br />"; //echo's error msg
+        echo "<a href='signup_form.php'>Try Again?<br><br>"; // links back to signup page with error message
+    } //closes if statement
 }
-?>
+?> <!-- close PHP code -->
 
 
 </body>

@@ -9,10 +9,7 @@ if(isset($_SESSION["message"])) {
     echo $_SESSION['message'];
     unset($_SESSION['message']);
 }
-
-echo "<br /><br /><br />";
 ?>
-
 
 <html>
 <head>
