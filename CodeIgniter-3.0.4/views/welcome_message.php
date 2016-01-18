@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="top"></div>
 <img id="logomain" src="images/pantry_assistant_logo.png">
 
-<form id="loginform">
+<form id="loginform" action="views/login.php" method="POST" enctype="multipart/form-data">
 	<input type="text" name="username" placeholder="enter username"><br><br>
 	<input type="password" name="password" placeholder="enter password"><br><br>
 	<input id="submit" type="submit" name="submit" value="submit">

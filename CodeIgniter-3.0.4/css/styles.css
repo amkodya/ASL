@@ -116,6 +116,12 @@ a:hover,
     left: 220px;
     border: 0;
 }
+#mylightbox {
+    display: none;
+}
+#mylightbox:hover {
+    display: block;
+}
 /*BIO*/
 #bio {
     margin-left: 20%;
@@ -184,4 +190,29 @@ td {
     height: 60px;
     text-align: center;
 }
+.effect img.image{
+    width: 30px;
+    height: 30px;
+}
+.effect:hover img.image{
+    display:none;
+}
+.effect img.hover{
+    display:none;
+}
+.effect:hover img.hover{
+    display:block;
+    position: relative;
+    top: 0;
+    left: 39px;
+}
+#id {
+    margin-right: 20px;
+}
+#leftlist {
+
+}
+
+
+
 
