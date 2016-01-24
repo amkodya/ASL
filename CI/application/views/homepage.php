@@ -5,11 +5,9 @@
  * Date: 1/14/16
  * Time: 11:06 AM
  * PROJECT: PANTRY ASSISTANT
- * Main.php
+ * homepage.php
  */
-?>
-
-<?
+ /*
 if(isset($_SESSION["message"])) {   //checks if session msg is set
     echo ($_SESSION['message']);    //echo session msg if session message is set
     unset($_SESSION['message']);    //unse the message so it will disappear upon refresh/revisit
@@ -46,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] =='POST') {  // if the request method is a POST (
         $stmt->bindParam(':quantity', $quantity); //sets binding paramater that binds sql data to php data - quantity of food
         $stmt->bindParam(':category', $category); //sets binding paramater that binds sql data to php data - category of food
         $stmt->execute();  //executes the code to transform sql to php
-}
+} */
 ?>
 
 <!-- START OF MAIN.PHP HTML -->
@@ -61,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] =='POST') {  // if the request method is a POST (
 </head>
 <body>
 
-    <div class="jumbotron"> <!-- blue section at the top -->
+    <div class="jumbotron" style="background:#56FCE5 !important"> <!-- blue section at the top -->
 
         <img id="logotopleft" src="../images/pantry_assistant_logo.png"> <!-- link to image of logo -->
         <div id="topright"><p>Hello, <?php echo $_SESSION['username']; ?>! </p> <!-- dyanmic info appears at the top - username -->
@@ -80,19 +78,19 @@ if ($_SERVER['REQUEST_METHOD'] =='POST') {  // if the request method is a POST (
     <section class="well well-lg"> <!-- expiring soon box -->
     <h3>These items will be expiring soon</h3>
 
-        <?php
+        <!--
 
         $stmt = $dbh->prepare('SELECT * FROM foods order by expiration ASC limit 20');  // selects all information from foods table in sql server in order of ascending id's
         $stmt->execute();     //execute the previous code that has $stmt variable
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);   //the result var is set which is the eviqualent of each line item in the sql server
         //The parameter means it will return an indexed array with each index containing an associative array of each row – do a var_dump($result); to see the array results
         //var_dump($result);
-        ?>
+        ?> -->
 
         <table colspan="3">
 
             <!-- dynamic array that will itirate all sql data -->
-            <?php
+           <!--
 
             foreach  ($result as $row) {  //foreach loop that will itirate through all the results and set them as var row
                 echo '<tr><td><p style="text-transform:capitalize;">' .$row['name']. '</p></td><td> ...................................... </td><td>' .$row['expiration']. '</td></tr>';
@@ -113,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] =='POST') {  // if the request method is a POST (
             <li role="presentation"><a href="#">misc</a></li>
         </ul>
 
-    <?php
+    <!-- php
     $stmt = $dbh->prepare('SELECT * FROM foods order by name ASC;');  // selects all information from foods table in sql server in order of ascending id's
     $stmt->execute();     //execute the previous code that has $stmt variable
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);   //the result var is set which is the eviqualent of each line item in the sql server
@@ -125,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] =='POST') {  // if the request method is a POST (
     <table class="table table-hover" id="maintab"><tr id="firstrow"><td>Name</td><td>Exp Date</td><td>Price($)</td><td>Calories(cal)</td><td>Fats(g)</td><td>Protein(g)</td><td>Quantity</td><td></td><td></td></tr>
 
         <!-- dynamic array that will itirate all sql data -->
-        <?php
+    <!--
             foreach  ($result as $row) {  //foreach loop that will itirate through all the results and set them as var row
             echo '<tr><td>' .$row['name']. '</td><td>' .$row['expiration']. '</td><td>' .$row['price']. '</td><td>' .$row['cal']. '</td><td>' .$row['fats']. '</td><td>' .$row['protein']. '</td><td>' .$row['quantity']. '</td><td><a class="glyphicon glyphicon-cog" href="updatefood.php?id='.$row['foodid'].'"></a></td><td><a class="glyphicon glyphicon-trash" href="deletefood.php?id='.$row['foodid'].'"></a></td></tr>';
             } //echo out every row until there is no more data

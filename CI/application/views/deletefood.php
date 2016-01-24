@@ -15,7 +15,7 @@ $foodid = $_GET['id']; //var clientid is set to the information from form where 
 $stmt = $dbh->prepare('DELETE FROM foods where foodid = :foodid'); //prepare statement to delete line from clients table that was clicked in the table
 $stmt->bindParam(':foodid', $foodid);   //binds the data from clientid in clients table to $clientid var
 $stmt->execute(); //execute the stmt variable that was set by prev lines of code - will bind data from sql to php
-header('Location: Main.php'); //redirect us back to the index page
+header('Location: homepage.php'); //redirect us back to the index page
 die(); //used to exit the script - end of code
 
 ?> <!-- close php -->

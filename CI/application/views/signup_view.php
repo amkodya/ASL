@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
-<div class="jumbotron"><a href="../index.php"><img id="logotopleft" src="../../images/pantry_assistant_logo.png"></a></div>
+<div class="jumbotron" style="background:#56FCE5 !important"><a href="../index.php"><img id="logotopleft" src="../../images/pantry_assistant_logo.png"></a></div>
 <?php
 // Display any form validation error messages
 echo validation_errors();

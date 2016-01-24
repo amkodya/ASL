@@ -141,10 +141,10 @@ a:hover,
     left: 2%;
 }
 #maincontent {
-    width: 98%;
-    border: #56FCE5 12px solid;
-    height: 75%;
-    margin: -60px 0 0 10px;
+    width: 100%;
+    border: #56FCE5 20px solid;
+    height: 85%;
+    margin-top: -20px;
 }
 #firstrow {
     background-color: #FFF5e2;
@@ -173,10 +173,9 @@ a:hover,
 }
 .well {
     float: right;
-    width: 1318px;
+    width: 800px;
     position: relative;
-    top: -27px;
-    left: -70px;
+    top: 2%;
     height: 178px;
 }
 #maincontent ul {

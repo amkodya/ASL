@@ -37,7 +37,7 @@ $stmt->bindParam(':protein', $protein); //sets binding paramater that binds sql 
 $stmt->bindParam(':quantity', $quantity); //sets binding paramater that binds sql data to php data - clients website
 $stmt->bindParam(':category', $category); //sets binding paramater that binds sql data to php data - clients website
 $stmt->execute();  //executes the code to transform sql to php
-    header('Location: Main.php'); //redirect us back to the index page
+    header('Location: homepage.php'); //redirect us back to the index page
     die(); //used to exit the script - end of code
 
 }

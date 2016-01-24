@@ -1,7 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,16 +13,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="top"></div>
 <img id="logomain" src="images/pantry_assistant_logo.png">
 
-<div class="form-group" id="loginform">
-
+<div id="loginform">
 	<?php echo validation_errors(); ?>
-	<?php echo form_open('verifylogin'); ?>
 
-	<input class="form-control" type="text" name="username" placeholder="enter username"><br>
-	<input  class="form-control"type="password" name="password" placeholder="enter password"><br>
+	<?php echo form_open('loginform'); ?>
+
+	<input class="form-control" type="text" name="username" value="<?php echo set_value('username'); ?>" placeholder="enter username"><br>
+	<input  class="form-control"type="password" name="password" value="<?php echo set_value('password'); ?>" placeholder="enter password"><br>
 	<button class="btn btn-warning" id="submit" type="submit">login</button>
-</form>
+
 	<a id="signuplink" href="index.php/signupform/index">Don't have an account? Sign up now</a>
+</form>
 </div>
 
 <div id="bottom">
