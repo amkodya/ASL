@@ -1,0 +1,192 @@
+body,
+#loginform input,
+a {
+    font-family: "Arial", sans-serif;
+    font-size: 14pt;
+    color: #2b2b2b;
+}
+h2 {
+    font-family: "arial black", sans-serif;
+}
+a:hover,
+#bottom a:hover {
+    color: #56FCE5;
+}
+.jumbotron {
+    background-color: #56FCE5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    clear: both;
+}
+#logomain {
+    width: 682px;
+    height: 276px;
+    position: relative;
+    top: 195px;
+    margin-left: 30%;
+}
+#logotopleft {
+    margin: -30px 0 0 20px;
+    width: 432px;
+    height: 175px;
+}
+#top {
+    background-color: #56FCE5;
+    height: 160px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#bottom {
+    background-color: #2b2b2b;
+    height: 270px;
+    width: 100%;
+    position: absolute;
+    top: 77%;
+    left: 0;
+    text-align: center;
+    color: #ffffff
+}
+#bottom a {
+    color: #ffffff;
+}
+/* LOGIN FORM */
+#loginform,
+#bio {
+    margin: 11% 35%;
+}
+#loginform input,
+#mainbuttons input,
+#loginform button {
+    width: 500px;
+    height: 50px;
+    border: #FF9600 1px solid;
+    box-shadow: none;
+    color: #2b2b2b;
+    text-align: center;
+}
+#loginform button {
+    font-family: "Arial Black", sans-serif;
+    font-size: 16pt;
+    text-transform: uppercase;
+    color: white;
+}
+#loginform a {
+    margin-left: 100px;
+}
+#alert {
+    z-index: 110;
+}
+/* SIGN UP FORM */
+.container h2 {
+    text-align: center;
+}
+.form-horizontal label {
+    width: 300px;
+    text-align: justify;
+}
+.form-horizontal input {
+    border: #FF9600 1px solid;
+    box-shadow: none;
+    color: #2b2b2b;
+    width: 400px;
+    float: right;
+    text-align: center;
+    font-size: 12pt;
+}
+.form-horizontal #submit {
+    height: 40px;
+    width: 200px;
+    box-shadow: none;
+    border: none;
+    float: right;
+    margin-right: -15px;
+}
+.container {
+    margin-top: 190px;
+}
+.container .form-group {
+    margin-top: -5px;
+}
+/*BIO*/
+#bio {
+    margin-left: 20%;
+    width: 60%;
+    text-align: center;
+    font-size: 12pt;
+}
+/************************** MAIN.PHP *****************************/
+#mainbuttons button {
+    width: 350px;
+    text-transform: uppercase;
+    font-family: "Arial Black", sans-serif;
+}
+#topright {
+    float: right;
+    text-align: right;
+    margin: -30px 50px 0 0;
+}
+#smallpic {
+    width: 100px;
+    height: 100px;
+    margin-top: -10px;
+}
+#mainbuttons {
+    position: relative;
+    top: 17%;
+    left: 2%;
+}
+#maincontent {
+    width: 98%;
+    border: #56FCE5 12px solid;
+    height: 75%;
+    margin: -60px 0 0 10px;
+}
+#firstrow {
+    background-color: #FFF5e2;
+}
+#maintab {
+    width: 1170px;
+    float: right;
+    margin: -70px 30px 0 0;
+}
+#maintab td {
+    height: 20px;
+    text-align: center;
+    width: 10px;
+}
+.glyphicon {
+    width: 25px;
+    height: 25px;
+    color: black;
+}
+.glyphicon:hover {
+    text-decoration: none;
+    color: #56FCE5;
+}
+#id {
+    margin-right: 20px;
+}
+.well {
+    float: right;
+    width: 1318px;
+    position: relative;
+    top: -27px;
+    left: -70px;
+    height: 178px;
+}
+#maincontent ul {
+    position: relative;
+    top: 34%;
+    left: 1%;
+    width: 500px;
+}
+
+
+
+
+
