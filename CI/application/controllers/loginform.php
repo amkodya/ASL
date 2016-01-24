@@ -22,7 +22,7 @@ class LoginForm extends CI_Controller {
         }
         else
         {
-            $this->load->view('homepage');
+            $this->load->view('foodView');
         }
     }
 

@@ -121,7 +121,7 @@ a:hover,
 }
 /************************** MAIN.PHP *****************************/
 #mainbuttons button {
-    width: 350px;
+    width: 400px;
     text-transform: uppercase;
     font-family: "Arial Black", sans-serif;
 }
@@ -137,22 +137,27 @@ a:hover,
 }
 #mainbuttons {
     position: relative;
-    top: 17%;
+    top: 23%;
     left: 2%;
 }
 #maincontent {
     width: 100%;
     border: #56FCE5 20px solid;
     height: 85%;
-    margin-top: -20px;
+    margin-top: -29px;
 }
 #firstrow {
-    background-color: #FFF5e2;
+    background-color: #337ab7;
+    color: white;
 }
 #maintab {
-    width: 1170px;
+    width: 1300px;
     float: right;
-    margin: -70px 30px 0 0;
+    margin: -140.8px 0 0 0;
+    height: 94px;
+    text-align: center;
+    font-size: 14pt;
+    vertical-align: middle;
 }
 #maintab td {
     height: 20px;
@@ -160,7 +165,7 @@ a:hover,
     width: 10px;
 }
 .glyphicon {
-    width: 25px;
+    width: 24px;
     height: 25px;
     color: black;
 }
@@ -173,19 +178,33 @@ a:hover,
 }
 .well {
     float: right;
-    width: 800px;
+    width: 73%;
     position: relative;
     top: 2%;
+    left: -2.2%;
     height: 178px;
+}
+.well h3 {
+    margin-top: -1%;
 }
 #maincontent ul {
     position: relative;
-    top: 34%;
+    top: 28%;
     left: 1%;
     width: 500px;
 }
+/************************** crud_view.php *****************************/
 
-
+#addform {
+    margin: 15% 0 0 30%;
+}
+.form-horizontal #submit,
+.form-horizontal input {
+    float: left;
+}
+.form-horizontal input {
+    width: 700px;
+}
 
 
 
