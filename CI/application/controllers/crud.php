@@ -19,9 +19,27 @@ class Crud extends CI_Controller {
             $quantity = $this->security->xss_clean($this->input->post('quantity'));
             $category = $this->security->xss_clean($this->input->post('category'));
 
+            $data['foods'] = array(
+
+               /* $name, $expiration, $price, $cal,
+                $fats, $protein, $quantity, $category */
+
+                'name' => 'Name',
+                'expiration' => 'Expiration',
+                'price' => 'Price',
+                'cal' => 'Calories',
+                'fats' => 'Fats',
+                'protein' => 'Protein',
+                'Quantity' => 'Quantity',
+                'Category' => 'Category'
+            );
+
+
             // Add the post
+            $this->load-> helper(array('form','url'));
             $this->load->model('food_model');
             $this->food_model->addFood($name, $expiration, $price, $cal, $fats, $protein, $quantity, $category);
+            $this->load->view('foodView', $data);
         }
 
         $data = array();
@@ -48,7 +66,7 @@ class Crud extends CI_Controller {
             $this->load->model('Food_model');
             $this->Food_model->updateFood($name, $expiration, $price, $cal, $fats, $protein, $quantity, $category);
 
-            $data['foods'] = $this->Food_model->getFood();
+            $data['foods'] = $this->Food_model->getFoods();
             $this->load->view('crud_view', $data);
         } else {
             $data = array('foodid' => $foodid);
@@ -61,8 +79,18 @@ class Crud extends CI_Controller {
         $this->load->model('food_model');
         $this->Food_model->deleteFood($foodid);
 
-        $data['foods'] = $this->Food_model->getFood();
+        $data['foods'] = $this->Food_model->getFoods();
         $this->load->view('crud_view', $data);
+    }
+
+    function grocery() {
+
+        $this->load->view('grocery_view');
+
+    }
+
+    function home() {
+        $this->load->view('foodView');
     }
 
 

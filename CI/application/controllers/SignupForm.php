@@ -45,7 +45,7 @@ class SignupForm extends CI_Controller
         // Check whether the form validates. If not, present the
         // form view otherwise present the success view.
         if ($this->form_validation->run() == false) {
-            $this->load->view("food/index");
+            $this->load->view("signup_view");
         }
         else {
             $salt = "SuperSaltHash"; //helps us create salt hash for password

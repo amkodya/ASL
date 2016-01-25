@@ -5,6 +5,7 @@
  * Date: 1/24/16
  * Time: 2:05 PM
  */
+$this->load->helper('form');
 ?>
 <html>
 <head>
@@ -14,11 +15,11 @@
 
 </head>
 <body>
-
 <div class="alert alert-success" role="alert">
     <h3>Your food was successfully submitted!</h3>
-    <p><a href="index.php/crud" class="alert-link">Add Another?</a>|
-    <a href="../index.php/application/views/crudview" class="alert-link">Back to Main Page</a></p>
+
+    <a class="alert-link" href="../index.php/crud">Add Another Item? </a>| <!-- submit button -->
+    <a class="alert-link" href="../index.php/crud/home">Back to Main Page</a><br> <!-- submit button -->
 
 </div>
 

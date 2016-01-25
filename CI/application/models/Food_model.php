@@ -3,7 +3,7 @@
 class Food_model extends CI_Model {
 
     function addFood($name, $expiration, $price, $cal, $fats, $protein, $quantity, $category) {
-        $data[] = array(
+        $data = array(
             'name' => $name,
             'expiration' => $expiration,
             'price' => $price,
@@ -21,7 +21,7 @@ class Food_model extends CI_Model {
         $query = $this->db->get('foods');
         $foods = array();
 
-        foreach ($query->$foods as $row) {
+        foreach ($query->result() as $row) {
             $foods[] = array(
                 'foodid' => $row->foodid,
                 'name' => $row->name,
@@ -36,6 +36,22 @@ class Food_model extends CI_Model {
         }
 
         return $foods;
+    }
+
+    function deletePost($foodid) {
+        $this->db->where('foodid', $foodid);
+        $this->db->delete('foods');
+    }
+
+    function makeGroc() {
+        $query = $this->db->get('foods');
+        $foods = array();
+
+        foreach ($query->result() as $row) {
+            $foods[] = array(
+                'name' => $row->name
+            );
+        }
     }
 
 }

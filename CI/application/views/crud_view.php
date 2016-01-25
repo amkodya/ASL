@@ -62,7 +62,9 @@
     <div id="submit">
     <?php echo form_submit('submit', 'Submit'); ?>
     </div>
-    <?php echo form_close(); ?>
+    <?php echo form_close(); ?><br><br><br>
+    <br />
+
 </div>
 
 
