@@ -22,7 +22,17 @@ class LoginForm extends CI_Controller {
         }
         else
         {
-            $this->load->view('foodView');
+
+            $user = array();
+            $this->load->model("SignupformModel");
+
+            $data = array();
+            $this->load->model('food_model');
+
+            $data['foods'] = $this->food_model->getFoods();
+            $user['login'] = $this->SignupformModel->getName();
+            $this->load->view('foodView', $data, $user);
+
         }
     }
 

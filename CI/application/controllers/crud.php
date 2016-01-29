@@ -34,19 +34,31 @@ class Crud extends CI_Controller {
                 'Category' => 'Category'
             );
 
+            $data = array();
+
+            $this->load->model('food_model');
+            $data['foods'] = $this->food_model->getFoods();
 
             // Add the post
             $this->load-> helper(array('form','url'));
             $this->load->model('food_model');
             $this->food_model->addFood($name, $expiration, $price, $cal, $fats, $protein, $quantity, $category);
-            $this->load->view('foodView', $data);
+            //$data['foods'] = $this->food_model->getFoods();
+            //$this->load->view('header');
+          //  $this->load->view('foodView', $data);
         }
 
         $data = array();
-
         $this->load->model('food_model');
         $data['foods'] = $this->food_model->getFoods();
-        $this->load->view('crud_view', $data);
+
+        $user = array();
+        $this->load->model('SignupformModel');
+        $user['login'] = $this->SignupformModel->getName();
+
+     //   $this->load->view('header');
+        $this->load->view('foodView', $data);
+
     }
 
 
@@ -54,43 +66,61 @@ class Crud extends CI_Controller {
         $foodid = $this->uri->segment(3);
 
         if ($this->input->post('submit')) {
-            $name = $this->input->xss_clean($this->input->post('name'));
-            $expiration = $this->input->xss_clean($this->input->post('expiration'));
-            $price = $this->input->xss_clean($this->input->post('price'));
-            $cal = $this->input->xss_clean($this->input->post('cals'));
-            $fats = $this->input->xss_clean($this->input->post('fats'));
-            $protein = $this->input->xss_clean($this->input->post('protein'));
-            $quantity = $this->input->xss_clean($this->input->post('quantity'));
-            $category = $this->input->xss_clean($this->input->post('category'));
+            $name = $this->security->xss_clean($this->input->post('name'));
+            $expiration = $this->security->xss_clean($this->input->post('expiration'));
+            $price = $this->security->xss_clean($this->input->post('price'));
+            $cal = $this->security->xss_clean($this->input->post('cals'));
+            $fats = $this->security->xss_clean($this->input->post('fats'));
+            $protein = $this->security->xss_clean($this->input->post('protein'));
+            $quantity = $this->security->xss_clean($this->input->post('quantity'));
+            $category = $this->security->xss_clean($this->input->post('category'));
 
-            $this->load->model('Food_model');
-            $this->Food_model->updateFood($name, $expiration, $price, $cal, $fats, $protein, $quantity, $category);
+            $data = array();
 
-            $data['foods'] = $this->Food_model->getFoods();
-            $this->load->view('crud_view', $data);
-        } else {
-            $data = array('foodid' => $foodid);
-            $this->load->view('updatefood', $data);
+            $this->load->model('food_model');
+            $data['foods'] = $this->food_model->getFoods();
+
+            // Add the post
+            $this->load-> helper(array('form','url'));
+            $this->load->model('food_model');
+            $this->food_model->addFood($name, $expiration, $price, $cal, $fats, $protein, $quantity, $category);
+            $data['foods'] = $this->food_model->getFoods();
+        //    $this->load->view('header');
+            $this->load->view('foodView');
         }
+
+        $data = array();
+        $this->load->model('food_model');
+        $data['foods'] = $this->food_model->getFoods();
+        $this->load->view('updatefood', $data);
     }
 
     function delete() {
         $foodid = $this->uri->segment(3);
-        $this->load->model('food_model');
         $this->Food_model->deleteFood($foodid);
 
-        $data['foods'] = $this->Food_model->getFoods();
+        $data['posts'] = $this->posts_model->getPosts();
         $this->load->view('crud_view', $data);
     }
 
     function grocery() {
 
-        $this->load->view('grocery_view');
+        $this->load->model('food_model');
+        $data['foods'] = $this->food_model->getFoods();
+        $this->load->view('grocery_view', $data);
 
     }
 
     function home() {
         $this->load->view('foodView');
+    }
+
+    function nutrition() {
+
+        $this->load->model('food_model');
+        $data['foods'] = $this->food_model->getFoods();
+        $this->load->view('nutrition', $data);
+
     }
 
 

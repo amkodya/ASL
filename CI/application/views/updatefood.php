@@ -24,39 +24,41 @@ $this->load->helper('form'); ?>
 
 <div class="form-horizontal" id="addform">
 
-<?php echo form_open('crud/update/'.$name); ?>
+    <?php if (isset($foods)): foreach ($foods as $f): ?>
+
+<?php echo form_open('crud/update/'.$f['name']); ?>
 
 <h3>Update Food Information Here:</h3>
-<label>Food Name:
-    <?php echo form_input('name'); ?>
-</label>
+<h2><label>Food Name:
+    <?php echo $f['name'];?>
+</label></h2>
 <br />
-<label>Expiration Date: (DD-MM-YYYY)
-    <?php echo form_input('expiration'); ?>
+<label>Expiration Date: (YYYY-MM-DD)
+    <?php echo form_input('expiration', $f['expiration']); ?>
 </label>
 <br />
 <label>Price: ($)
-    <?php echo form_input('price'); ?>
+    <?php echo form_input('price', $f['price']); ?>
 </label>
 <br />
 <label>Cal: (cal)
-    <?php echo form_input('cals'); ?>
+    <?php echo form_input('cal', $f['cal']); ?>
 </label>
 <br />
 <label>Fats: (g)
-    <?php echo form_input('fats'); ?>
+    <?php echo form_input('fats', $f['fats']); ?>
 </label>
 <br />
 <label>Protein: (g)
-    <?php echo form_input('protein'); ?>
+    <?php echo form_input('protein', $f['protein']); ?>
 </label>
 <br />
 <label>Quantity:
-    <?php echo set_value('quantity', '0'); ?>
+    <?php echo form_input('quantity', $f['quantity']); ?>
 </label>
 <br />
 <label>Category:
-    <?php echo form_input('category'); ?>
+    <?php echo form_input('category', $f['category']); ?>
 </label>
 <br />
 <!-- submit button  -->
@@ -64,6 +66,13 @@ $this->load->helper('form'); ?>
     <?php echo form_submit('submit', 'Submit'); ?>
 </div>
 
-<?php echo form_close(); ?>
+<?php echo form_close();
+        break; ?>
+
+    <?php endforeach; else: ?>
+
+        <h2>No posts found</h2>
+
+    <?php endif; ?>
 
 </div>

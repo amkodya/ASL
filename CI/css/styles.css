@@ -120,7 +120,7 @@ a:hover,
     text-align: center;
     font-size: 12pt;
 }
-/************************** MAIN.PHP *****************************/
+/************************** foodview.PHP *****************************/
 #mainbuttons button {
     width: 400px;
     text-transform: uppercase;
@@ -138,28 +138,27 @@ a:hover,
 }
 #mainbuttons {
     position: relative;
-    top: 23%;
+    top: 22%;
     left: 2%;
 }
 #maincontent {
     width: 100%;
-    border: #56FCE5 20px solid;
-    height: 85%;
-    margin-top: -29px;
+    margin-top: -27%;
 }
 #firstrow {
     background-color: #337ab7;
     color: white;
 }
-#maintab {
-    width: 85%;
+#maincontent .container {
+    width: 75%;
     float: right;
-    margin-top: -7%;
+    margin-top: -13%;
     height: 58px;
     text-align: center;
     font-size: 14pt;
     vertical-align: middle;
 }
+
 #maintab td {
     height: 20px;
     text-align: center;
@@ -181,12 +180,13 @@ a:hover,
     float: right;
     width: 73%;
     position: relative;
-    top: 2%;
-    left: -2.2%;
-    height: 178px;
+    top: 8%;
+    left: -2.7%;
+    height: 13%;
+    text-transform: capitalize;
 }
-.well h3 {
-    margin-top: -1%;
+.well h4 {
+    margin-top: -1.5%;
 }
 #maincontent ul {
     position: relative;
@@ -194,20 +194,37 @@ a:hover,
     left: 1%;
     width: 10%;
 }
-/************************** crud_view.php *****************************/
-
 #addform {
-    margin: 15% 0 0 30%;
+    position: relative;
+    top: 20%;
+    left: 2%;
 }
 .form-horizontal #submit,
 .form-horizontal input {
     float: left;
 }
 .form-horizontal input {
-    width: 700px;
+    width: 400px;
+    margin-top: -3px;
+}
+#expired table {
+    height: 75px;
+    overflow: scroll;
+    width: 300px;
+}
+#expired td {
+    height: 20px;
+    width: 200px;
 }
 /************************** grocery_view.php *****************************/
+div#products,
+div#cart {
+    text-transform: capitalize;
 
+}
+div#products .ui-widget-header {
+    background-color: #56FCE5;
+}
 div#products h1,
 div#cart h1 {
     background-color: transparent;
@@ -222,8 +239,17 @@ div#products {
 div#cart {
     width: 1300px;
     height: 50%;
+    margin-top: 5%;
 }
 .alert {
     z-index: 100;
     height: 100%
+}
+div#products ul li {
+    width: 300px;
+    list-style-type: none;
+}
+div#cart ul li {
+    list-style-type: none;
+    wdth: 400px;
 }

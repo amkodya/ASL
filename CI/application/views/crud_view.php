@@ -20,52 +20,7 @@
 
 </div> <!-- close top section-->
 
-<div class="form-horizontal" id="addform">
 
-    <?php $this->load->helper('form'); ?>
-    <?php echo form_open('crud'); ?>
-
-    <h3>Enter Food Information Here:</h3>
-    <label>Food Name:
-        <?php echo form_input('name'); ?>
-    </label>
-    <br />
-    <label>Expiration Date: (YYYY-MM-DD)
-        <?php echo form_input('expiration'); ?>
-    </label>
-    <br />
-    <label>Price: ($)
-        <?php echo form_input('price'); ?>
-    </label>
-    <br />
-    <label>Cal: (g)
-        <?php echo form_input('cals'); ?>
-    </label>
-    <br />
-    <label>Fats: (g)
-        <?php echo form_input('fats'); ?>
-    </label>
-    <br />
-    <label>Protein: (g)
-        <?php echo form_input('protein'); ?>
-    </label>
-    <br />
-    <label>Quantity:
-        <?php echo form_input('quantity'); ?>
-    </label>
-    <br />
-    <label>Category:
-        <?php echo form_input('category'); ?>
-    </label>
-    <br />
-    <!-- submit button  -->
-    <div id="submit">
-    <?php echo form_submit('submit', 'Submit'); ?>
-    </div>
-    <?php echo form_close(); ?><br><br><br>
-    <br />
-
-</div>
 
 
 </body>

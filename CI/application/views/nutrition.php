@@ -80,6 +80,7 @@ $this->load->helper('form');
 </div> <!-- close top section-->
 
 
+
 <section id="mainbuttons"> <!--main buttons (add item, make grocery list, nutrition list -->
 
     <a href="grocery"><button type="button" class="btn btn-warning btn-lg btn-block">+ create grocery list</button></a><br> <!-- submit button -->
@@ -111,39 +112,40 @@ $this->load->helper('form');
     </table> <!-- close dynamic food section-->
 </section> <!-- end expiring soon -->
 
+
 <section id="maincontent"> <!-- maincontent section - all food items go here -->
 
 
-<div id="products" class="table table-condensed">
-    <h1 class="ui-widget-header">Add To List</h1>
-    <div id="catalog">
-        <div>
-            <ul class="nav nav-pills nav-stacked">
+    <div id="products" class="table table-condensed">
+        <h1 class="ui-widget-header">Add To Nutrition List</h1>
+        <div id="catalog">
+            <div>
+                <ul class="nav nav-pills nav-stacked">
 
-                <?php if (isset($foods)): foreach ($foods as $f): ?>
+                    <?php if (isset($foods)): foreach ($foods as $f): ?>
 
-                <li role="presentation">$<?php echo $f['price']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $f['name']; ?></li>
+                        <li role="presentation"><b><?php echo $f['name']; ?></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $f['cal']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $f['fats']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $f['protein']; ?></li>
 
-                <?php endforeach; else: ?>
+                    <?php endforeach; else: ?>
 
-                    <h2>No posts found</h2>
+                        <h2>No posts found</h2>
 
-                <?php endif; ?>
+                    <?php endif; ?>
 
-            </ul>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
-<div id="cart" class="table table-condensed">
-    <h1 class="ui-widget-header">Grocery List</h1>
-    <div class="ui-widget-content">
-        <ol>
-            <li>Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</li>
-            <li class="placeholder">Add your items here</li>
-        </ol>
+    <div id="cart" class="table table-condensed">
+        <h1 class="ui-widget-header">Grocery List</h1>
+        <div class="ui-widget-content">
+            <ol>
+                <li>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calories&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fats&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Protein</li>
+                <li class="placeholder">Add your items here</li>
+            </ol>
+        </div>
     </div>
-</div>
 
 </section>
 

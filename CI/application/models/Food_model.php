@@ -38,8 +38,8 @@ class Food_model extends CI_Model {
         return $foods;
     }
 
-    function deletePost($foodid) {
-        $this->db->where('foodid', $foodid);
+    function deleteFood($name) {
+        $this->db->where('name', $name);
         $this->db->delete('foods');
     }
 
@@ -49,7 +49,22 @@ class Food_model extends CI_Model {
 
         foreach ($query->result() as $row) {
             $foods[] = array(
-                'name' => $row->name
+                'name' => $row->name,
+                'price' => $row->price
+            );
+        }
+    }
+
+    function makeNutrition() {
+        $query = $this->db->get('foods');
+        $foods = array();
+
+        foreach ($query->result() as $row) {
+            $foods[] = array(
+                'name' => $row->name,
+                'cal' => $row->cal,
+                'fats' => $row->fats,
+                'protein' => $row->protein
             );
         }
     }
