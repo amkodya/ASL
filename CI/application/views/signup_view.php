@@ -80,12 +80,6 @@ echo form_open("SignupForm");
         </label>
         <input class="form-control" type="password" name="confpassword" required>
     </div>
-    <div class="form-group">
-        <label>
-                Upload Profile Picture
-        </label>
-        <input class="form-control" type="file" name="profile" required>
-    </div>
     <div id="form-submit">
         <button id="submit" type="submit" name="submit" value="submit" class="btn btn-warning">Submit</button>
         <!-- <div id='mylightbox'>Registration Successful!<br><a href='Main.php'>Go to your homepage!</a></div> -->

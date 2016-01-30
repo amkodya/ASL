@@ -60,23 +60,7 @@ $this->load->helper('form');
 <div class="jumbotron" style="background:#56FCE5 !important"> <!-- blue section at the top -->
 
     <a href="crud/home"><img id="logotopleft" src="../../images/pantry_assistant_logo.png"></a> <!-- link to image of logo -->
-    <div id="topright">
 
-        <?php if (isset($user)): foreach ($user as $u): ?>
-
-            <p>Hello,  <?php echo $u['username'];?> ! </p> <!-- dyanmic info appears at the top - username -->
-
-
-
-        <?php endforeach; else: ?>
-
-            <h2>No posts found</h2>
-
-        <?php endif; ?>
-
-        <img id="smallpic"><br> <!-- small icon pic -->
-        <a href="../index.php">Sign Out</a> <!--option to sign out -->
-    </div> <!-- close topright div -->
 </div> <!-- close top section-->
 
 

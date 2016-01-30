@@ -9,6 +9,8 @@
  */
 
 $this->load->helper('form');
+$this->load->library('upload');
+$this->load->helper(array('form', 'url'));
 ?>
 
 <!-- START OF MAIN.PHP HTML -->
@@ -24,23 +26,8 @@ $this->load->helper('form');
 <div class="jumbotron" style="background:#56FCE5 !important"> <!-- blue section at the top -->
 
     <a href="../index.php/crud/home"><img id="logotopleft" src="../images/pantry_assistant_logo.png"></a> <!-- link to image of logo -->
-    <div id="topright">
-
-        <?php if (isset($user)): foreach ($user as $u): ?>
-
-            <p>Hello,  <?php echo $u['username'];?> ! </p> <!-- dyanmic info appears at the top - username -->
 
 
-
-        <?php endforeach; else: ?>
-
-            <h2>No posts found</h2>
-
-        <?php endif; ?>
-
-        <img id="smallpic"><br> <!-- small icon pic -->
-        <a href="../index.php">Sign Out</a> <!--option to sign out -->
-    </div> <!-- close topright div -->
 </div> <!-- close top section-->
 
 
@@ -49,6 +36,8 @@ $this->load->helper('form');
 
     <a href="../index.php/crud/grocery"><button type="button" class="btn btn-warning btn-lg btn-block">+ create grocery list</button></a><br> <!-- submit button -->
     <a href="../index.php/crud/nutrition"><button type="button" class="btn btn-warning btn-lg btn-block">+ add nutrition sheet</button></a><br> <!-- submit button -->
+    <a href="../index.php/crud/upload"><button type="button" class="btn btn-warning btn-lg btn-block">upload picture</button></a><br> <!-- submit button -->
+    <a href="../index.php"><button type="button" class="btn btn-warning btn-lg btn-block">signout</button></a><br> <!-- submit button -->
 </section>
 
 

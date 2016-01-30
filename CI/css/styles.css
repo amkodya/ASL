@@ -120,8 +120,14 @@ a:hover,
     text-align: center;
     font-size: 12pt;
 }
+#uploadform {
+    position: absolute;
+    top: 300px;
+    left: 300px;
+}
 /************************** foodview.PHP *****************************/
-#mainbuttons button {
+#mainbuttons button,
+#pic button {
     width: 400px;
     text-transform: uppercase;
     font-family: "Arial Black", sans-serif;
@@ -141,9 +147,14 @@ a:hover,
     top: 22%;
     left: 2%;
 }
+#pic {
+    position: relative;
+    top: 9%;
+    left: 50%;
+}
 #maincontent {
     width: 100%;
-    margin-top: -27%;
+    margin-top: -20%;
 }
 #firstrow {
     background-color: #337ab7;
@@ -178,11 +189,11 @@ a:hover,
 }
 .well {
     float: right;
-    width: 73%;
+    width: 18%;
     position: relative;
-    top: 8%;
-    left: -2.7%;
-    height: 13%;
+    top: -5%;
+    left: -57.7%;
+    height: 24%;
     text-transform: capitalize;
 }
 .well h4 {

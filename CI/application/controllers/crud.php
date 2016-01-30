@@ -123,6 +123,9 @@ class Crud extends CI_Controller {
 
     }
 
+    function upload() {
+        $this->load->view('file_view');
+    }
 
 
 }

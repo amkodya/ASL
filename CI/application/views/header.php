@@ -9,6 +9,7 @@
  */
 
 $this->load->helper('form');
+$this->load->library('upload');
 ?>
 
 <!-- START OF MAIN.PHP HTML -->
@@ -38,7 +39,7 @@ $this->load->helper('form');
 
         <?php endif; ?>
 
-        <img id="smallpic"><br> <!-- small icon pic -->
+        <a href=""<img id="smallpic"><br> <!-- small icon pic -->
         <a href="../index.php">Sign Out</a> <!--option to sign out -->
     </div> <!-- close topright div -->
 </div> <!-- close top section-->
